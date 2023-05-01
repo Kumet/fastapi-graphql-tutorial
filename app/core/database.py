@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session, sessionmaker
 
 from app.core.logger import setup_logger
 
-setup_logger(__name__)
+logger = setup_logger(__name__)
 
 DATABASE_URL = "sqlite:///./test.db"
 
