@@ -1,15 +1,4 @@
 [[package]]
-name = "aniso8601"
-version = "9.0.1"
-description = "A library for parsing ISO 8601 strings."
-category = "main"
-optional = false
-python-versions = "*"
-
-[package.extras]
-dev = ["black", "coverage", "isort", "pre-commit", "pyenchant", "pylint"]
-
-[[package]]
 name = "anyio"
 version = "3.6.2"
 description = "High level compatibility layer for multiple asynchronous event loop implementations"
@@ -112,40 +101,12 @@ pycodestyle = ">=2.10.0,<2.11.0"
 pyflakes = ">=3.0.0,<3.1.0"
 
 [[package]]
-name = "graphene"
-version = "3.2.2"
-description = "GraphQL Framework for Python"
-category = "main"
-optional = false
-python-versions = "*"
-
-[package.dependencies]
-aniso8601 = ">=8,<10"
-graphql-core = ">=3.1,<3.3"
-graphql-relay = ">=3.1,<3.3"
-
-[package.extras]
-dev = ["black (==22.3.0)", "flake8 (>=4,<5)", "pytest (>=6,<7)", "pytest-benchmark (>=3.4,<4)", "pytest-cov (>=3,<4)", "pytest-mock (>=3,<4)", "pytest-asyncio (>=0.16,<2)", "snapshottest (>=0.6,<1)", "coveralls (>=3.3,<4)", "mock (>=4,<5)", "pytz (==2022.1)", "iso8601 (>=1,<2)"]
-test = ["pytest (>=6,<7)", "pytest-benchmark (>=3.4,<4)", "pytest-cov (>=3,<4)", "pytest-mock (>=3,<4)", "pytest-asyncio (>=0.16,<2)", "snapshottest (>=0.6,<1)", "coveralls (>=3.3,<4)", "mock (>=4,<5)", "pytz (==2022.1)", "iso8601 (>=1,<2)"]
-
-[[package]]
 name = "graphql-core"
 version = "3.2.3"
 description = "GraphQL implementation for Python, a port of GraphQL.js, the JavaScript reference implementation for GraphQL."
 category = "main"
 optional = false
 python-versions = ">=3.6,<4"
-
-[[package]]
-name = "graphql-relay"
-version = "3.2.0"
-description = "Relay library for graphql-core"
-category = "main"
-optional = false
-python-versions = ">=3.6,<4"
-
-[package.dependencies]
-graphql-core = ">=3.2,<3.3"
 
 [[package]]
 name = "h11"
@@ -253,6 +214,25 @@ optional = false
 python-versions = ">=3.6"
 
 [[package]]
+name = "python-dateutil"
+version = "2.8.2"
+description = "Extensions to the standard Python datetime module"
+category = "main"
+optional = false
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
+
+[package.dependencies]
+six = ">=1.5"
+
+[[package]]
+name = "six"
+version = "1.16.0"
+description = "Python 2 and 3 compatibility utilities"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
+
+[[package]]
 name = "sniffio"
 version = "1.3.0"
 description = "Sniff out which async library your code is running under"
@@ -274,6 +254,36 @@ typing-extensions = {version = ">=3.10.0", markers = "python_version < \"3.10\""
 
 [package.extras]
 full = ["httpx (>=0.22.0)", "itsdangerous", "jinja2", "python-multipart", "pyyaml"]
+
+[[package]]
+name = "strawberry-graphql"
+version = "0.175.1"
+description = "A library for creating GraphQL APIs"
+category = "main"
+optional = false
+python-versions = ">=3.7,<4.0"
+
+[package.dependencies]
+graphql-core = ">=3.2.0,<3.3.0"
+python-dateutil = ">=2.7.0,<3.0.0"
+typing_extensions = ">=4.0.0,<5.0.0"
+
+[package.extras]
+asgi = ["starlette (>=0.18.0)", "python-multipart (>=0.0.5,<0.0.7)"]
+debug-server = ["starlette (>=0.18.0)", "click (>=7.0,<9.0)", "pygments (>=2.3,<3.0)", "uvicorn (>=0.11.6,<0.22.0)", "python-multipart (>=0.0.5,<0.0.7)", "libcst (>=0.4.7)", "rich (>=12.0.0)"]
+cli = ["click (>=7.0,<9.0)", "pygments (>=2.3,<3.0)", "libcst (>=0.4.7)", "rich (>=12.0.0)"]
+django = ["Django (>=3.2)", "asgiref (>=3.2,<4.0)"]
+channels = ["asgiref (>=3.2,<4.0)", "channels (>=3.0.5)"]
+flask = ["flask (>=1.1)"]
+opentelemetry = ["opentelemetry-api (<2)", "opentelemetry-sdk (<2)"]
+chalice = ["chalice (>=1.22,<2.0)"]
+pydantic = ["pydantic (<2)"]
+fastapi = ["python-multipart (>=0.0.5,<0.0.7)", "fastapi (>=0.65.2)"]
+sanic = ["sanic (>=20.12.2)"]
+aiohttp = ["aiohttp (>=3.7.4.post0,<4.0.0)"]
+starlite = ["starlite (>=1.48.0)"]
+debug = ["libcst (>=0.4.7)", "rich (>=12.0.0)"]
+pyinstrument = ["pyinstrument (>=4.0.0)"]
 
 [[package]]
 name = "tomli"
@@ -309,10 +319,9 @@ standard = ["colorama (>=0.4)", "httptools (>=0.5.0)", "python-dotenv (>=0.13)",
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "47f8880f417895f22fc689847b3237e848dbc2f06d727de178ce60b31b00eca3"
+content-hash = "c7a39521160510f993ce1a9abedf0270ee923cccd10da4fbd9aea3faf1b1a2e1"
 
 [metadata.files]
-aniso8601 = []
 anyio = []
 autoflake = []
 black = []
@@ -323,9 +332,7 @@ click = [
 colorama = []
 fastapi = []
 flake8 = []
-graphene = []
 graphql-core = []
-graphql-relay = []
 h11 = []
 idna = []
 isort = []
@@ -337,8 +344,17 @@ platformdirs = []
 pycodestyle = []
 pydantic = []
 pyflakes = []
+python-dateutil = [
+    {file = "python-dateutil-2.8.2.tar.gz", hash = "sha256:0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"},
+    {file = "python_dateutil-2.8.2-py2.py3-none-any.whl", hash = "sha256:961d03dc3453ebbc59dbdea9e4e11c5651520a876d0f4db161e8674aae935da9"},
+]
+six = [
+    {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
+    {file = "six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},
+]
 sniffio = []
 starlette = []
+strawberry-graphql = []
 tomli = []
 typing-extensions = []
 uvicorn = []
