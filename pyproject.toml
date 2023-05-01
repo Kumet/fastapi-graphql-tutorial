@@ -9,8 +9,19 @@ python = "^3.9"
 fastapi = "^0.95.1"
 uvicorn = "^0.22.0"
 graphene = "^3.2.2"
+flake8 = "^6.0.0"
+isort = "^5.12.0"
+black = "^23.3.0"
+autoflake = "^2.1.1"
 
 [tool.poetry.dev-dependencies]
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+profile = "black"
+line_length = 120
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
