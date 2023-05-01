@@ -13,6 +13,7 @@ isort = "^5.12.0"
 black = "^23.3.0"
 autoflake = "^2.1.1"
 strawberry-graphql = "^0.175.1"
+SQLAlchemy = "^2.0.12"
 
 [tool.poetry.dev-dependencies]
 
