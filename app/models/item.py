@@ -11,4 +11,4 @@ class Item(Base):
     description = Column(String)
 
     def as_dict(self):
-        return {"id": self.id, "name": self.name}
+        return {"id": self.id, "name": self.name, "description": self.description}
