@@ -4,6 +4,10 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import Session, sessionmaker
 
+from app.core.logger import setup_logger
+
+setup_logger(__name__)
+
 DATABASE_URL = "sqlite:///./test.db"
 
 engine = create_engine(DATABASE_URL)
