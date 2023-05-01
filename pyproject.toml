@@ -8,6 +8,7 @@ authors = ["m.kumeta <m.kumeta@nakamu-farm.com>"]
 python = "^3.9"
 fastapi = "^0.95.1"
 uvicorn = "^0.22.0"
+graphene = "^3.2.2"
 
 [tool.poetry.dev-dependencies]
 
