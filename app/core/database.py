@@ -1,8 +1,9 @@
-from core.config import get_envs
-from core.logger import setup_logger
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import scoped_session, sessionmaker
+
+from core.config import get_envs
+from core.logger import setup_logger
 
 logger = setup_logger(__name__)
 env = get_envs()

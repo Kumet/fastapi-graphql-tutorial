@@ -1,6 +1,7 @@
-from crud import ItemCRUD
 from fastapi import Depends
 from strawberry.types import Info
+
+from crud import ItemCRUD
 
 
 async def get_graphql_context(item_crud: ItemCRUD = Depends()):

@@ -1,9 +1,10 @@
 from typing import List, Optional, Type
 
-from core.database import get_db
 from fastapi import Depends
-from models import Item
 from sqlalchemy.orm import Session
+
+from core.database import get_db
+from models import Item
 
 
 class ItemCRUD:
