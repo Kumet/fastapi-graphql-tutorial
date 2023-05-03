@@ -4,7 +4,11 @@ from fastapi import Depends
 from sqlalchemy.orm import Session
 
 from core.database import get_db
+from core.logger import setup_logger
 from models import Item
+from schemas.pydantic import ItemCreate, ItemUpdate
+
+logger = setup_logger(__name__)
 
 
 class ItemCRUD:
@@ -31,19 +35,22 @@ class ItemCRUD:
     def get(self, item_id: int) -> Optional[Type[Item]]:
         return self.db.get(Item, item_id)
 
-    def create(self, item: Item) -> Item:
-        self.db.add(item)
+    def create(self, item: ItemCreate) -> Item:
+        item_model = Item(name=item.name, description=item.description)
+        self.db.add(item_model)
         self.db.commit()
-        self.db.refresh(item)
-        return item
+        self.db.refresh(item_model)
+        return item_model
 
-    def update(self, item_id: int, item: Item) -> Item:
-        item.id = item_id
-        self.db.merge(item)
+    def update(self, item_id: int, item: ItemUpdate) -> Item:
+        item_model = Item(name=item.name, description=item.description)
+        item_model.id = item_id
+        self.db.merge(item_model)
         self.db.commit()
-        return item
+        return item_model
 
-    def delete(self, item: Item) -> None:
-        self.db.delete(item)
+    def delete(self, item_id: int) -> None:
+        item_model = self.db.get(Item, item_id)
+        self.db.delete(item_model)
         self.db.commit()
         self.db.flush()
