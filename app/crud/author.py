@@ -1,4 +1,4 @@
-from typing import List, Optional, Type
+from typing import List, Optional
 
 from fastapi import Depends
 from sqlalchemy.orm import Session
@@ -29,7 +29,7 @@ class AuthorCRUD:
 
         return query.offset(start).limit(limit).all()
 
-    def get(self, id: int) -> Optional[Type[Author]]:
+    def get(self, id: int) -> Optional[Author]:
         return self.db.get(Author, id)
 
     def create(self, author: AuthorCreateSchema) -> Author:
