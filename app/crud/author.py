@@ -22,7 +22,7 @@ class AuthorCRUD:
         name: Optional[str] = None,
         limit: Optional[int] = 10,
         start: Optional[int] = 0,
-    ) -> List[Type[Author]]:
+    ) -> List[Author]:
         query = self.db.query(Author)
         if name:
             query = query.filter_by(name=name)
