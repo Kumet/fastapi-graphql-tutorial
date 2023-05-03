@@ -1,10 +1,9 @@
 from typing import List, Optional, Type
 
+from core.database import get_db
 from fastapi import Depends
+from models import Item
 from sqlalchemy.orm import Session
-
-from app.core.database import get_db
-from app.models import Item
 
 
 class ItemCRUD:
@@ -28,8 +27,8 @@ class ItemCRUD:
 
         return query.offset(start).limit(limit).all()
 
-    def get(self, item: Item) -> Optional[Type[Item]]:
-        return self.db.get(Item, item.id)
+    def get(self, item_id: int) -> Optional[Type[Item]]:
+        return self.db.get(Item, item_id)
 
     def create(self, item: Item) -> Item:
         self.db.add(item)
