@@ -7,7 +7,7 @@ from .book import book_author_association
 
 
 class Author(Base):
-    __tablenaem__ = "authors"
+    __tablename__ = "authors"
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String(16), nullable=False)
