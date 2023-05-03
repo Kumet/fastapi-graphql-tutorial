@@ -1,4 +1,4 @@
-from typing import List, Optional, Type
+from typing import List, Optional
 
 from fastapi import Depends
 from sqlalchemy.orm import Session
@@ -22,14 +22,14 @@ class BookCRUD:
         name: Optional[str] = None,
         limit: Optional[int] = 10,
         start: Optional[int] = 0,
-    ) -> List[Type[Book]]:
+    ) -> List[Book]:
         query = self.db.query(Book)
         if name:
             query = query.filter_by(name=name)
 
         return query.offset(start).limit(limit).all()
 
-    def get(self, id: int) -> Optional[Type[Book]]:
+    def get(self, id: int) -> Optional[Book]:
         return self.db.get(Book, id)
 
     def create(self, book: BookCreateSchema) -> Book:
